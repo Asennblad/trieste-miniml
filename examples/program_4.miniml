@@ -1,0 +1,43 @@
+let a = 3;;
+a + 2;;
+
+(fun f x is (fun j k is k + x));;
+
+let f1 = fun fsf (x : int) is true;;
+let f2 = fun fsf (x : int) is x;;
+
+f1 3;;
+f2 3;;
+
+f2 3 + f2 3;;
+
+(if f1 3 then (fun fsf (x : int) is x) else f2);;
+
+let fdk = (fun g (x : int -> int) is x 3);;
+
+(if true then (fun g (x : int) is 4) else (fun g (x : int) is 5));;
+
+if true then ((fun kj (x : int) is true) 3) else ((fun sj (x : int) is false) 3);;
+
+(fun in g : bool is g < 4) 5;;
+
+(fun in g is g) 3 + (fun in g is g) 4;;
+
+let ijds = fun ede (x : int -> int -> int) is 6;;
+
+let oo = fun o (i : int) is 9;;
+
+oo 5;;
+
+((fun jkjk f is 4) 3) + 3;;
+
+let a = a + 1;;
+
+fun kjn (i : int -> bool): int -> bool is (fun ggnfj (j : int) is true);;
+
+
+let fkjjnjfd = fun boolgg (x : int) is 5;;
+
+let jjj = fun jkjnnl (k : int) is fun jdjkfd (j : bool) is 9;;
+
+if true then jjj 4 else fun ddkjkj (b : bool) is 0;;

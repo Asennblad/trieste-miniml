@@ -1,0 +1,112 @@
+miniML
+resolve_polymorphism
+(top
+  {}
+  (program
+    {
+      loop = let}
+    (topexpr
+      (let
+        (ident 4:loop)
+        (type
+          (forall
+            (t_vars
+              (error
+                (errormsg 32:Cannot compile polymorphic types)
+                (errorast
+                  (t_var 3:#a1)))
+              (error
+                (errormsg 32:Cannot compile polymorphic types)
+                (errorast
+                  (t_var 3:#a4))))
+            (type
+              (->
+                (error
+                  (errormsg 32:Cannot compile polymorphic types)
+                  (errorast
+                    (t_var 3:#a1)))
+                (error
+                  (errormsg 32:Cannot compile polymorphic types)
+                  (errorast
+                    (t_var 3:#a4)))))))
+        (expr
+          (type
+            (->
+              (error
+                (errormsg 32:Cannot compile polymorphic types)
+                (errorast
+                  (t_var 3:#a1)))
+              (error
+                (errormsg 32:Cannot compile polymorphic types)
+                (errorast
+                  (t_var 3:#a4)))))
+          (fun
+            {
+              f = fundef
+              x = param}
+            (fundef
+              (ident 1:f)
+              (type
+                (->
+                  (error
+                    (errormsg 32:Cannot compile polymorphic types)
+                    (errorast
+                      (t_var 3:#a1)))
+                  (error
+                    (errormsg 32:Cannot compile polymorphic types)
+                    (errorast
+                      (t_var 3:#a4)))))
+              (param
+                (ident 1:x)
+                (type
+                  (error
+                    (errormsg 32:Cannot compile polymorphic types)
+                    (errorast
+                      (t_var 3:#a1)))))
+              (expr
+                (type
+                  (error
+                    (errormsg 32:Cannot compile polymorphic types)
+                    (errorast
+                      (t_var 3:#a4))))
+                (app
+                  (expr
+                    (type
+                      (->
+                        (error
+                          (errormsg 32:Cannot compile polymorphic types)
+                          (errorast
+                            (t_var 3:#a1)))
+                        (error
+                          (errormsg 32:Cannot compile polymorphic types)
+                          (errorast
+                            (t_var 3:#a4)))))
+                    (ident 1:f))
+                  (expr
+                    (type
+                      (error
+                        (errormsg 32:Cannot compile polymorphic types)
+                        (errorast
+                          (t_var 3:#a1))))
+                    (ident 1:x)))))))))
+    (topexpr
+      (expr
+        (type
+          (error
+            (errormsg 32:Cannot compile polymorphic types)
+            (errorast
+              (t_var 3:#a6))))
+        (app
+          (expr
+            (type
+              (->
+                (t_int)
+                (error
+                  (errormsg 32:Cannot compile polymorphic types)
+                  (errorast
+                    (t_var 3:#a6)))))
+            (ident 4:loop))
+          (expr
+            (type
+              (t_int))
+            (int 1:0)))))))

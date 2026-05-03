@@ -1,6 +1,17 @@
 cmake_minimum_required(VERSION 3.20.0)
 project(miniml VERSION 0.1.0 LANGUAGES CXX C)
 
+
+# for coverage report
+option(CODE_COVERAGE "Enable coverage instrumentation" OFF)
+if(CODE_COVERAGE)
+  message(STATUS "Code coverage enabled")
+  set(COVERAGE_FLAGS "-fprofile-instr-generate -fcoverage-mapping -O0 -g")
+  set(CMAKE_CXX_FLAGS        "${CMAKE_CXX_FLAGS}        ${COVERAGE_FLAGS}")
+  set(CMAKE_C_FLAGS          "${CMAKE_C_FLAGS}          ${COVERAGE_FLAGS}")
+  set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${COVERAGE_FLAGS}")
+endif()
+
 # Trieste
 include(FetchContent)
 
@@ -12,6 +23,14 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(trieste)
 
+if(NOT TARGET Terminfo::terminfo)
+    add_library(Terminfo::terminfo INTERFACE IMPORTED GLOBAL)
+    find_library(_tinfo_lib NAMES tinfo ncurses)
+    if(_tinfo_lib)
+        set_target_properties(Terminfo::terminfo PROPERTIES
+            INTERFACE_LINK_LIBRARIES "${_tinfo_lib}")
+    endif()
+endif()
 # LLVM
 find_package(LLVM REQUIRED CONFIG)
 
